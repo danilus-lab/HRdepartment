@@ -1,0 +1,20 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h2>первый второй третий</h2>
+    {% if workers %}
+        {% for el in workers %}
+            <div class="alert alert-warning mt-2">
+                {{ el.fio_worker }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-warning mt-2">
+            Список сотрудников пуст
+        </div>
+    {% endif %}
+{% endblock %}
