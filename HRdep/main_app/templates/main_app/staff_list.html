@@ -1,0 +1,30 @@
+{% extends 'main_app/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <style>
+        table {
+           border: 1px solid grey;
+           border-collapse: collapse;
+        }
+        td {
+            border: 1px solid grey;
+        }
+    </style>
+    <h2>Штатное расписание</h2>
+    {% if notes %}
+        {% for el in notes %}
+        <table>
+            <tr class="alert alert-warning mt-2">
+                <td>{{ el.num_dep_id }}</td>
+                <td>{{ el.post_name }}</td>
+                <td>{{ el.count_units }}</td>
+                <td>{{ el.salary }}</td>
+            </tr>
+        </table>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
